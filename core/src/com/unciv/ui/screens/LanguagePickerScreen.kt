@@ -17,8 +17,7 @@ import com.unciv.ui.screens.pickerscreens.PickerScreen
  *  Reusable code is in [LanguageTable] and [addLanguageTables].
  */
 class LanguagePickerScreen : PickerScreen() {
-    private var chosenLanguage = if (game.translations.percentCompleteOfLanguages.containsKey(Constants.defaultLanguage))
-        Constants.defaultLanguage else Constants.english
+    private var chosenLanguage = Constants.english
 
     private val languageTables: ArrayList<LanguageTable>
 
@@ -47,12 +46,6 @@ class LanguagePickerScreen : PickerScreen() {
         rightSideButton.setText("Pick language".tr())
         rightSideButton.onClick {
             pickLanguage()
-        }
-
-        // game.novice.tw custom: pre-select the default language so the player can confirm in one tap
-        if (chosenLanguage != Constants.english) {
-            rightSideButton.enable()
-            update()
         }
     }
 
